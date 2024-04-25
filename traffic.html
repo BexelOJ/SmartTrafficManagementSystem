@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Rows of Four Squares with Circle Toggle Buttons</title>
+<style>
+   .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 40px); /* Make it full height of the viewport minus 40px */
+    margin-top: 0px; /* Add space from the top */
+    margin-left: 0px; /* Add space from the left */
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 660px;
+    height: 200px;
+  }
+  .square {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(22, 36, 189);
+    margin: 10px;
+  }
+  .toggle-button {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .toggle-button.green {
+    background-color: red; /* Color when active */
+  }
+  .top-left {
+    top: 5px;
+    left: 5px;
+  }
+  .top-left1 {
+    top: 5px;
+    left: 20px;
+  }
+  
+  .top-right {
+    top: 5px;
+    right: 5px;
+  }
+  .top-right1 {
+    right: 5px;
+    bottom: 70px;
+  }
+  .bottom-left {
+    bottom: 5px;
+    left: 5px;
+  }
+  .bottom-left1 {
+    top: 70px;
+    left: 5px;
+  }
+  .bottom-right {
+    bottom: 5px;
+    right: 5px;
+  }
+  .bottom-right1 {
+    bottom: 5px;
+    left: 70px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="1"></div>
+    <div class="toggle-button top-left1" data-sensor-id="2"></div>
+    <div class="toggle-button top-right" data-sensor-id="3"></div>
+    <div class="toggle-button top-right1" data-sensor-id="4"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="5"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="6"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="7"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="8"></div>
+  </div>
+</div>
+
+<script>
+  // Add click event listener to toggle buttons
+  const toggleButtons = document.querySelectorAll('.toggle-button');
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('green'); // Toggle the 'green' class
+
+      // Get the position of the clicked button
+      const buttonPosition = button.classList[1]; // Assuming the second class represents the position
+
+      // Send button position to PHP script using AJAX
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'insert_record.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          console.log('Record inserted successfully');
+        } else {
+          console.error('Error inserting record:', xhr.statusText);
+        }
+      };
+      xhr.onerror = function () {
+        console.error('Request failed');
+      };
+      xhr.send('button_position=' + encodeURIComponent(buttonPosition));
+    });
+  });
+</script>
+
+
+</body>
+</html>
