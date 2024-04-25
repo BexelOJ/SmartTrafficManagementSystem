@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Rows of Four Squares with Circle Toggle Buttons</title>
+<style>
+   .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 40px); /* Make it full height of the viewport minus 40px */
+    margin-top: 0px; /* Add space from the top */
+    margin-left: 0px; /* Add space from the left */
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 660px;
+    height: 200px;
+  }
+  .square {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(22, 36, 189);
+    margin: 10px;
+  }
+  .toggle-button {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .toggle-button.green {
+    background-color: red; /* Color when active */
+  }
+  .top-left {
+    top: 5px;
+    left: 5px;
+  }
+  .top-left1 {
+    top: 5px;
+    left: 20px;
+  }
+  
+  .top-right {
+    top: 5px;
+    right: 5px;
+  }
+  .top-right1 {
+    right: 5px;
+    bottom: 70px;
+  }
+  .bottom-left {
+    bottom: 5px;
+    left: 5px;
+  }
+  .bottom-left1 {
+    top: 70px;
+    left: 5px;
+  }
+  .bottom-right {
+    bottom: 5px;
+    right: 5px;
+  }
+  .bottom-right1 {
+    bottom: 5px;
+    left: 70px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk11_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk11_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk11_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk11_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk11_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk11_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk11_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk11_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk12_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk12_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk12_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk12_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk12_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk12_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk12_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk12_006"></div>
+  </div>  
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk13_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk13_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk13_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk13_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk13_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk13_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk13_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk13_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk14_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk14_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk14_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk14_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk14_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk14_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk14_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk14_006"></div>
+  </div> 
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk15_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk15_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk15_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk15_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk15_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk15_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk15_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk15_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk21_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk21_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk21_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk21_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk21_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk21_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk21_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk21_006"></div>
+  </div> 
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk22_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk22_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk22_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk22_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk22_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk22_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk22_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk22_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk23_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk23_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk23_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk23_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk23_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk23_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk23_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk23_006"></div>
+  </div> 
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk24_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk24_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk24_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk24_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk24_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk24_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk24_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk24_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk25_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk25_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk25_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk25_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk25_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk25_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk25_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk25_006"></div>
+  </div> 
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk31_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk31_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk31_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk31_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk31_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk31_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk31_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk31_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk32_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk32_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk32_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk32_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk32_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk32_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk32_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk32_006"></div>
+  </div> 
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk33_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk33_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk33_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk33_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk33_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk33_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk33_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk33_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk34_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk34_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk34_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk34_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk34_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk34_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk34_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk34_006"></div>
+  </div> 
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk35_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk35_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk35_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk35_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk35_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk35_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk35_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk35_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk41_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk41_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk41_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk41_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk41_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk41_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk41_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk41_006"></div>
+  </div> 
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk42_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk42_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk42_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk42_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk42_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk42_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk42_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk42_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk43_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk43_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk43_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk43_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk43_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk43_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk43_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk43_006"></div>
+  </div> 
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk44_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk44_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk44_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk44_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk44_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk44_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk44_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk44_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk45_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk45_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk45_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk45_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk45_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk45_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk45_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk45_006"></div>
+  </div>     
+    <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk51_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk51_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk51_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk51_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk51_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk51_08"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk51_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk51_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk52_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk52_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk52_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk52_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk52_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk52_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk52_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk52_006"></div>
+  </div> 
+   <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk53_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk53_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk53_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk53_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk53_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk53_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk53_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk53_006"></div>
+  </div>
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk54_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk54_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk54_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk54_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk54_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk54_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk54_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk54_006"></div>
+  </div> 
+  <div class="square">
+    <div class="toggle-button top-left" data-sensor-id="blk55_001"></div>
+    <div class="toggle-button top-left1" data-sensor-id="blk55_002"></div>
+    <div class="toggle-button top-right" data-sensor-id="blk55_003"></div>
+    <div class="toggle-button top-right1" data-sensor-id="blk55_004"></div>
+    <div class="toggle-button bottom-left" data-sensor-id="blk55_007"></div>
+    <div class="toggle-button bottom-left1" data-sensor-id="blk55_008"></div>
+    <div class="toggle-button bottom-right" data-sensor-id="blk55_005"></div>
+    <div class="toggle-button bottom-right1" data-sensor-id="blk55_006"></div>
+  </div>               
+</div>
+
+<script>
+  // Add click event listener to toggle buttons
+  const toggleButtons = document.querySelectorAll('.toggle-button');
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('green'); // Toggle the 'green' class
+
+      // Get the button position (sensor id)
+      const buttonId = button.getAttribute('data-sensor-id');
+
+      // Send button id and status to PHP script using AJAX
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'update_status.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          console.log('Status updated successfully');
+        } else {
+          console.error('Error updating status:', xhr.statusText);
+        }
+      };
+      xhr.onerror = function () {
+        console.error('Request failed');
+      };
+      xhr.send('button_id=' + encodeURIComponent(buttonId) + '&status=' + (button.classList.contains('green') ? 1 : 0));
+    });
+  });
+</script>
+
+
+</body>
+</html>
