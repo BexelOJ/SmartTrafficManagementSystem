@@ -12,3 +12,7 @@ DataBase Name: smarttrafficms
 Table Name: sensordatatoggle;
 
 in my program.
+
+traffic_v2.html  # remove _v2 from the file name for working properly, origianl file name is traffic.html only.
+update_status_v2.php # remove _v2 from the file name for working properly, origianl file name is update_status.php only.
+
